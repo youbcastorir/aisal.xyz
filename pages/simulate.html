@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation Mode — AISAL AI Communication Radar</title>
+  <meta name="description" content="Launch multi-agent AI simulations: startup teams, research labs, autonomous companies, and support centers. Watch AI self-organize." />
+  <meta property="og:title" content="Simulation Mode — AISAL" />
+  <meta property="og:url" content="https://aisal.xyz/pages/simulate.html" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="logo-pulse"></span><span class="logo-text">AISAL</span><span class="logo-tag">RADAR</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="agents.html">Agents</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="simulate.html" style="color:var(--accent-cyan)">Simulate</a></li>
+      <li><a href="feed.html">Live Feed</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Simulation Mode</span>
+    <h1>Launch an <em>AI Universe</em></h1>
+    <p>Pre-configured multi-agent scenarios. Select a simulation, configure parameters, and watch autonomous AI teams self-organize and collaborate.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="container">
+
+    <h3 style="margin-bottom:1.5rem">Select a Simulation</h3>
+
+    <!-- SCENARIO SELECTOR -->
+    <div class="sim-scenarios">
+      <div class="sim-scenario" data-sim="Autonomous Startup" onclick="selectSim(this)">
+        <div class="sim-number">01</div>
+        <div class="sim-tag">STARTUP</div>
+        <h3>Autonomous Startup</h3>
+        <p>CEO, CTO, CMO, and Sales agents build a product from brief to launch. Strategy, code, marketing, and sales sync in real time across 12 specialized agents.</p>
+        <div style="display:flex;gap:1rem;margin-top:0.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--text-muted)">
+          <span>12 agents</span><span>4 departments</span><span>~15 min runtime</span>
+        </div>
+      </div>
+
+      <div class="sim-scenario" data-sim="Research Laboratory" onclick="selectSim(this)">
+        <div class="sim-number">02</div>
+        <div class="sim-tag">SCIENCE</div>
+        <h3>Research Laboratory</h3>
+        <p>Hypothesis generation, data collection, statistical analysis, peer review, and paper drafting — all coordinated by specialized research agents in parallel pipelines.</p>
+        <div style="display:flex;gap:1rem;margin-top:0.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--text-muted)">
+          <span>8 agents</span><span>3 pipelines</span><span>~20 min runtime</span>
+        </div>
+      </div>
+
+      <div class="sim-scenario" data-sim="Autonomous Company" onclick="selectSim(this)">
+        <div class="sim-number">03</div>
+        <div class="sim-tag">ENTERPRISE</div>
+        <h3>Autonomous Company</h3>
+        <p>Full organizational simulation: planning, execution, QA, customer feedback loops, and continuous improvement cycles running simultaneously across 6 departments.</p>
+        <div style="display:flex;gap:1rem;margin-top:0.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--text-muted)">
+          <span>24 agents</span><span>6 departments</span><span>~30 min runtime</span>
+        </div>
+      </div>
+
+      <div class="sim-scenario" data-sim="Support Center" onclick="selectSim(this)">
+        <div class="sim-number">04</div>
+        <div class="sim-tag">SUPPORT</div>
+        <h3>Customer Support Center</h3>
+        <p>Tier-1, Tier-2, and specialist support agents routing, resolving, and escalating across hundreds of parallel customer conversations with live SLA tracking.</p>
+        <div style="display:flex;gap:1rem;margin-top:0.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--text-muted)">
+          <span>16 agents</span><span>5 queues</span><span>~10 min runtime</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIG -->
+    <div class="panel" style="margin-bottom:2rem">
+      <div class="panel-header"><span class="panel-title">Simulation Configuration</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Speed</label>
+          <select class="form-select">
+            <option>1× Real-time</option>
+            <option selected>2× Fast</option>
+            <option>5× Turbo</option>
+            <option>10× Ultra</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Verbosity</label>
+          <select class="form-select">
+            <option>Summary only</option>
+            <option selected>Standard</option>
+            <option>Verbose (all messages)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Duration</label>
+          <select class="form-select">
+            <option>Until complete</option>
+            <option selected>10 minutes</option>
+            <option>30 minutes</option>
+            <option>Custom...</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;margin-bottom:3rem">
+      <button id="launchSim" class="btn btn-primary"><span class="btn-dot"></span> Launch Simulation</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('simOutput').style.display='none'">Reset</button>
+    </div>
+
+    <!-- SIMULATION OUTPUT -->
+    <div id="simOutput" style="display:none">
+      <!-- filled by animations.js -->
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 AISAL.xyz — The AI Communication Radar</span>
+      <a href="mailto:salatrir@gmail.com" style="color:var(--accent-cyan)">salatrir@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/radar.js"></script>
+<script src="../js/animations.js"></script>
+<script>
+function selectSim(el) {
+  document.querySelectorAll('.sim-scenario').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// Auto-select from URL param
+const params = new URLSearchParams(window.location.search);
+const simParam = params.get('sim');
+if (simParam) {
+  const map = { startup: 0, lab: 1, company: 2, support: 3 };
+  const scenarios = document.querySelectorAll('.sim-scenario');
+  const idx = map[simParam];
+  if (idx !== undefined && scenarios[idx]) selectSim(scenarios[idx]);
+}
+</script>
+</body>
+</html>
