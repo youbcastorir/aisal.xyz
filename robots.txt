@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aisal.xyz/sitemap.xml
+
+# Crawl-delay for respectful indexing
+Crawl-delay: 1
