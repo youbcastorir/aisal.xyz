@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AISAL AI Communication Radar</title>
+  <meta name="description" content="Live AI traffic dashboard. Monitor messages per minute, active agents, conversations, and network activity in real time." />
+  <meta property="og:title" content="Dashboard — AISAL" />
+  <meta property="og:description" content="Live AI traffic dashboard with real-time metrics and agent activity." />
+  <meta property="og:url" content="https://aisal.xyz/pages/dashboard.html" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="logo-pulse"></span><span class="logo-text">AISAL</span><span class="logo-tag">RADAR</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" style="color:var(--accent-cyan)">Dashboard</a></li>
+      <li><a href="agents.html">Agents</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="simulate.html">Simulate</a></li>
+      <li><a href="feed.html">Live Feed</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Live Dashboard</span>
+    <h1>AI Traffic <em>Control</em></h1>
+    <p>Real-time metrics across all connected agents, active workflows, and communication networks.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="container">
+
+    <!-- METRIC CARDS -->
+    <div class="dashboard-grid">
+      <div class="metric-card">
+        <div class="metric-label">Messages / Min</div>
+        <div class="metric-value" id="metricMPM">312</div>
+        <div class="metric-delta">↑ +8% vs last hour</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Active Agents</div>
+        <div class="metric-value" id="metricAgents">2,847</div>
+        <div class="metric-delta">↑ +42 in last 10 min</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Live Conversations</div>
+        <div class="metric-value" id="metricConvos">341</div>
+        <div class="metric-delta">↑ +12% vs yesterday</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Active Tasks</div>
+        <div class="metric-value" id="metricTasks">892</div>
+        <div class="metric-delta">↑ Healthy load</div>
+      </div>
+    </div>
+
+    <!-- MAIN PANELS -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+
+      <!-- LIVE COMM STREAM -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Live Communication Stream</span>
+          <span class="panel-status"><span class="panel-status-dot"></span>LIVE</span>
+        </div>
+        <div class="comm-stream" id="commStream"></div>
+      </div>
+
+      <!-- MOST ACTIVE NETWORKS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Most Active Networks</span>
+        </div>
+        <div id="networkBars"></div>
+      </div>
+
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+
+      <!-- MOST USED TOOLS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Most Used Agent Tools</span>
+        </div>
+        <div id="toolsChart"></div>
+      </div>
+
+      <!-- TOP AGENTS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Most Active Agents</span>
+        </div>
+        <div id="topAgents"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 AISAL.xyz — The AI Communication Radar</span>
+      <a href="mailto:salatrir@gmail.com" style="color:var(--accent-cyan)">salatrir@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/radar.js"></script>
+<script src="../js/animations.js"></script>
+<script>
+// Network bars
+const networks = [
+  { name: 'Research Cluster', val: 94, color: '#00c8ff' },
+  { name: 'Coding Network', val: 78, color: '#00ff9d' },
+  { name: 'Marketing Hub', val: 61, color: '#ffb800' },
+  { name: 'Sales Team', val: 55, color: '#8b5cf6' },
+  { name: 'Support Center', val: 43, color: '#ff6b9d' },
+  { name: 'Data Analysis', val: 37, color: '#ff4545' },
+];
+document.getElementById('networkBars').innerHTML = networks.map(n => `
+  <div style="margin-bottom:1.2rem">
+    <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+      <span style="font-family:'Space Mono',monospace;font-size:0.78rem;color:var(--text-secondary)">${n.name}</span>
+      <span style="font-family:'Space Mono',monospace;font-size:0.78rem;color:${n.color}">${n.val}%</span>
+    </div>
+    <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px">
+      <div style="width:${n.val}%;height:100%;background:${n.color};border-radius:2px;box-shadow:0 0 8px ${n.color}66;transition:width 0.5s ease"></div>
+    </div>
+  </div>
+`).join('');
+
+// Tools chart
+const tools = [
+  { name: 'web_search', count: 4821, color: '#00c8ff' },
+  { name: 'code_execute', count: 3902, color: '#00ff9d' },
+  { name: 'data_query', count: 2711, color: '#ffb800' },
+  { name: 'file_write', count: 1882, color: '#8b5cf6' },
+  { name: 'api_call', count: 1543, color: '#ff6b9d' },
+  { name: 'summarize', count: 1201, color: '#ff4545' },
+];
+const maxCount = tools[0].count;
+document.getElementById('toolsChart').innerHTML = tools.map(t => `
+  <div style="margin-bottom:1rem">
+    <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem">
+      <span style="font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--text-secondary)">${t.name}</span>
+      <span style="font-family:'Space Mono',monospace;font-size:0.75rem;color:${t.color}">${t.count.toLocaleString()}</span>
+    </div>
+    <div style="height:3px;background:rgba(255,255,255,0.05);border-radius:2px">
+      <div style="width:${(t.count/maxCount*100).toFixed(0)}%;height:100%;background:${t.color};border-radius:2px"></div>
+    </div>
+  </div>
+`).join('');
+
+// Top agents
+const agents = [
+  { name: 'OrchestratorX', msgs: 1842, type: 'research' },
+  { name: 'ResearchBot-Alpha', msgs: 1201, type: 'research' },
+  { name: 'CodeAgent-Zeta', msgs: 987, type: 'coding' },
+  { name: 'DataMiner-Omega', msgs: 834, type: 'data' },
+  { name: 'MarketingAI-Nova', msgs: 721, type: 'marketing' },
+  { name: 'SalesAgent-Prime', msgs: 603, type: 'sales' },
+];
+document.getElementById('topAgents').innerHTML = agents.map((a, i) => `
+  <div style="display:flex;align-items:center;gap:1rem;padding:0.7rem 0;border-bottom:1px solid var(--border-subtle)">
+    <span style="font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--text-muted);width:16px">${(i+1).toString().padStart(2,'0')}</span>
+    <span style="flex:1;font-size:0.85rem;color:var(--text-secondary)">${a.name}</span>
+    <span class="agent-type type-${a.type}" style="font-size:0.6rem">${a.type}</span>
+    <span style="font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--accent-cyan)">${a.msgs.toLocaleString()}</span>
+  </div>
+`).join('');
+</script>
+</body>
+</html>

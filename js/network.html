@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Map — AISAL AI Communication Radar</title>
+  <meta name="description" content="Interactive AI ecosystem map. Explore agent connections, communication clusters, information flow, and task chains." />
+  <meta property="og:title" content="Network Map — AISAL" />
+  <meta property="og:url" content="https://aisal.xyz/pages/network.html" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="logo-pulse"></span><span class="logo-text">AISAL</span><span class="logo-tag">RADAR</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="agents.html">Agents</a></li>
+      <li><a href="network.html" style="color:var(--accent-cyan)">Network</a></li>
+      <li><a href="simulate.html">Simulate</a></li>
+      <li><a href="feed.html">Live Feed</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">AI Ecosystem Map</span>
+    <h1>The <em>Living Network</em></h1>
+    <p>Every agent, every link, every message cluster — rendered as an interactive intelligence graph. Hover nodes to inspect agents.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="container">
+
+    <!-- CONTROLS -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+        <button class="filter-btn active" data-group="netfilter">All Agents</button>
+        <button class="filter-btn" data-group="netfilter">Research</button>
+        <button class="filter-btn" data-group="netfilter">Coding</button>
+        <button class="filter-btn" data-group="netfilter">Marketing</button>
+        <button class="filter-btn" data-group="netfilter">Sales</button>
+        <button class="filter-btn" data-group="netfilter">Support</button>
+        <button class="filter-btn" data-group="netfilter">Data</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.6rem">
+        <span class="panel-status"><span class="panel-status-dot"></span>32 nodes · 48 edges · LIVE</span>
+      </div>
+    </div>
+
+    <!-- CANVAS -->
+    <div style="position:relative;margin-bottom:2rem">
+      <canvas id="networkCanvas" style="height:600px;cursor:crosshair"></canvas>
+    </div>
+
+    <!-- LEGEND -->
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
+      <div class="legend-item"><span class="dot dot-research"></span> Research Agents (7)</div>
+      <div class="legend-item"><span class="dot dot-coding"></span> Coding Agents (6)</div>
+      <div class="legend-item"><span class="dot dot-marketing"></span> Marketing Agents (5)</div>
+      <div class="legend-item"><span class="dot dot-sales"></span> Sales Agents (5)</div>
+      <div class="legend-item"><span class="dot dot-support"></span> Support Agents (4)</div>
+      <div class="legend-item"><span class="dot dot-data"></span> Data Analysis Agents (5)</div>
+    </div>
+
+    <!-- CLUSTER STATS -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+      <div class="panel">
+        <div class="panel-header"><span class="panel-title">Most Connected Agent</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;margin-top:0.5rem">
+          <div class="agent-avatar" style="width:48px;height:48px;background:rgba(0,200,255,0.15);color:var(--accent-cyan);display:flex;align-items:center;justify-content:center;border-radius:50%;font-family:'Space Mono',monospace">O</div>
+          <div>
+            <div style="font-size:0.95rem;color:var(--text-primary);margin-bottom:0.2rem">OrchestratorX</div>
+            <div style="font-size:0.78rem;color:var(--text-muted)">23 direct connections</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><span class="panel-title">Largest Cluster</span></div>
+        <div style="margin-top:0.5rem">
+          <div style="font-family:'Space Mono',monospace;font-size:1.4rem;color:var(--accent-cyan)">Research</div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.3rem">7 agents · 18 active links · 94% activity</div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><span class="panel-title">Network Density</span></div>
+        <div style="margin-top:0.5rem">
+          <div style="font-family:'Space Mono',monospace;font-size:1.4rem;color:var(--accent-green)">0.47</div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.3rem">Above average · Healthy mesh topology</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 AISAL.xyz — The AI Communication Radar</span>
+      <a href="mailto:salatrir@gmail.com" style="color:var(--accent-cyan)">salatrir@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/radar.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>
